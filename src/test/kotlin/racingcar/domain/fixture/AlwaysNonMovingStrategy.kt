@@ -4,7 +4,7 @@ import racingcar.domain.Distance
 import racingcar.domain.strategy.move.MovingStrategy
 import java.lang.UnsupportedOperationException
 
-class AlwaysNonMovingStrategy: MovingStrategy {
+class AlwaysNonMovingStrategy : MovingStrategy {
 
     override fun isMovable(): Boolean = false
 
