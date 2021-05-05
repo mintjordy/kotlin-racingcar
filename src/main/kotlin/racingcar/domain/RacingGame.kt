@@ -1,5 +1,7 @@
 package racingcar.domain
 
+import racingcar.domain.strategy.move.MovingStrategy
+
 class RacingGame {
 
     fun play(cars: Cars, round: Round, movingStrategy: MovingStrategy): Recorder {

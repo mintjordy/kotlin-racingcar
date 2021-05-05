@@ -1,7 +1,7 @@
 package racingcar.domain.fixture
 
 import racingcar.domain.Distance
-import racingcar.domain.MovingStrategy
+import racingcar.domain.strategy.move.MovingStrategy
 
 class AlwaysOneMovingStrategy: MovingStrategy {
 

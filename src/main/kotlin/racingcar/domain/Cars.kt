@@ -1,5 +1,7 @@
 package racingcar.domain
 
+import racingcar.domain.strategy.move.MovingStrategy
+
 class Cars(val cars: List<Car>) {
     constructor(vararg cars: Car) : this(cars.toList())
 
