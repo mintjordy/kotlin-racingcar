@@ -10,8 +10,8 @@ internal class RecorderTest {
     fun `record - 라운드별 자동차들의 정보를 추가한다`() {
         // given
         val recorder = Recorder()
-        val oneRoundResult = Cars(Car("1"), Car("2"), Car("3"))
-        val twoRoundResult = Cars(Car("1", 1), Car("2"), Car("3", 2))
+        val oneRoundResult = Cars(listOf(Car("1"), Car("2"), Car("3")))
+        val twoRoundResult = Cars(listOf(Car("1", 1), Car("2"), Car("3", 2)))
 
         // when
         recorder.record(oneRoundResult)
@@ -35,7 +35,7 @@ internal class RecorderTest {
     fun `record - 레코더에 이미 추가된 자동차를 꺼내서 추가로 이동 시키더라도 레코드에 영향이 없다`() {
         // given
         val recorder = Recorder()
-        val oneRoundResult = Cars(Car("1"), Car("2"), Car("3"))
+        val oneRoundResult = Cars(listOf(Car("1"), Car("2"), Car("3")))
 
         // when
         recorder.record(oneRoundResult)
@@ -53,9 +53,9 @@ internal class RecorderTest {
     fun `findWinner - 최종라운드에 승리한 자동차 목록을 반환`() {
         // given
         val recorder = Recorder()
-        val oneRoundResult = Cars(Car("1"), Car("2"), Car("3"))
-        val twoRoundResult = Cars(Car("1", 1), Car("2"), Car("3", 2))
-        val thirdRoundResult = Cars(Car("1", 2), Car("2", 3), Car("3", 3))
+        val oneRoundResult = Cars(listOf(Car("1"), Car("2"), Car("3")))
+        val twoRoundResult = Cars(listOf(Car("1", 1), Car("2"), Car("3", 2)))
+        val thirdRoundResult = Cars(listOf(Car("1", 2), Car("2", 3), Car("3", 3)))
         recorder.record(oneRoundResult)
         recorder.record(twoRoundResult)
         recorder.record(thirdRoundResult)

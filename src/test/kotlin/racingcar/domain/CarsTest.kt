@@ -22,7 +22,7 @@ internal class CarsTest {
         val third = Car("ghi")
 
         // when
-        val actual = Cars(first, second, third)
+        val actual = Cars(listOf(first, second, third))
 
         // then
         actual.cars.size `should be equal to` 3
@@ -34,7 +34,7 @@ internal class CarsTest {
         val first = Car("abc")
 
         // when
-        invoking { Cars(first) }
+        invoking { Cars(listOf(first)) }
             .`should throw`(IllegalArgumentException::class)
             .`with message`("최소 2대의 차가 필요합니다.")
     }
@@ -45,7 +45,7 @@ internal class CarsTest {
         val first = Car("abc")
         val second = Car("def")
         val third = Car("ghi")
-        val cars = Cars(first, second, third)
+        val cars = Cars(listOf(first, second, third))
 
         // when
         val actual = cars.run(AlwaysOneMovingStrategy())
@@ -72,11 +72,11 @@ internal class CarsTest {
         private fun provideForFindAllByMaximumDistance(): Stream<Arguments> {
             return Stream.of(
                 Arguments.of(
-                    Cars(Car("1번마"), Car("2번마", 1), Car("3번마", 3)),
+                    Cars(listOf(Car("1번마"), Car("2번마", 1), Car("3번마", 3))),
                     listOf(Car("3번마", 3))
                 ),
                 Arguments.of(
-                    Cars(Car("1번마"), Car("2번마", 1), Car("3번마", 3), Car("4번마", 3)),
+                    Cars(listOf(Car("1번마"), Car("2번마", 1), Car("3번마", 3), Car("4번마", 3))),
                     listOf(Car("3번마", 3), Car("4번마", 3))
                 )
             )

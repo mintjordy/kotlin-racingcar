@@ -9,7 +9,7 @@ internal class RacingGameTest {
     @Test
     fun `play - 자동차에 대해 입력받은 round만큼 경주 후 round 크기의 결과를 보유한 레코드 반환`() {
         // given
-        val cars = Cars(Car("abc"), Car("def"), Car("ghi"))
+        val cars = Cars(listOf(Car("abc"), Car("def"), Car("ghi")))
         val round = Round(5)
 
         // when
