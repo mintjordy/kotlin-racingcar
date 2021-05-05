@@ -1,4 +1,4 @@
-package racingcar.ui
+package study
 
 import org.amshove.kluent.`should be equal to`
 import org.amshove.kluent.`should throw`
@@ -9,7 +9,7 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
 
 @DisplayName("String extension 함수 학습테스트")
-internal class StudyTest {
+internal class StringTest {
 
     @Test
     fun `String toInt(숫자인 값) - 숫자로 변경`() {

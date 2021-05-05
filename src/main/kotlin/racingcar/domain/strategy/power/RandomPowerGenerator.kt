@@ -1,11 +1,10 @@
 package racingcar.domain.strategy.power
 
-import kotlin.random.Random
-
 class RandomPowerGenerator : PowerGenerator {
-    override fun generatePower(): Int = Random.nextInt(RANDOM_VALUE_BOUND)
+    override fun generatePower(): Int = (MIN_VALUE_BOUND..MAX_VALUE_BOUND).random()
 
     companion object {
-        private const val RANDOM_VALUE_BOUND = 10
+        private const val MIN_VALUE_BOUND = 1
+        private const val MAX_VALUE_BOUND = 10
     }
 }
