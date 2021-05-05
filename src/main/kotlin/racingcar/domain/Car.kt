@@ -1,7 +1,8 @@
 package racingcar.domain
 
-data class Car(val name: Name, val distance: Distance) {
+data class Car(val name: Name, val distance: Distance = Distance(DEFAULT_DISTANCE)) {
 
+    constructor(name: String) : this(Name(name))
     constructor(name: String, distance: Int) : this(Name(name), Distance(distance))
 
     fun run(movingStrategy: MovingStrategy): Car {
@@ -9,5 +10,11 @@ data class Car(val name: Name, val distance: Distance) {
             return Car(name, movingStrategy.move(distance))
         }
         return this
+    }
+
+    fun isSameDistance(distance: Distance): Boolean = this.distance == distance
+
+    companion object {
+        private const val DEFAULT_DISTANCE = 0
     }
 }
