@@ -1,11 +1,15 @@
 package racingcar.domain
 
 import org.amshove.kluent.`should be equal to`
+import org.amshove.kluent.`should throw`
+import org.amshove.kluent.`with message`
+import org.amshove.kluent.invoking
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
 import racingcar.domain.fixture.AlwaysOneMovingStrategy
+import java.lang.IllegalArgumentException
 import java.util.stream.Stream
 
 internal class CarsTest {
@@ -22,6 +26,17 @@ internal class CarsTest {
 
         // then
         actual.cars.size `should be equal to` 3
+    }
+
+    @Test
+    fun `create - 경기에 필요한 최소 갯수 보다 작은 자동차입력시 예외 발생`() {
+        // given
+        val first = Car("abc")
+
+        // when
+        invoking { Cars(first) }
+            .`should throw`(IllegalArgumentException::class)
+            .`with message`("최소 2대의 차가 필요합니다.")
     }
 
     @Test
