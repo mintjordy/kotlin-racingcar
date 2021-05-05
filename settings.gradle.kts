@@ -1,2 +1,2 @@
-rootProject.name = 'kotlin-racingcar'
+rootProject.name = "kotlin-racingcar"
 
