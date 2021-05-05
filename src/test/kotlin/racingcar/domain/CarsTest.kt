@@ -42,10 +42,10 @@ internal class CarsTest {
     }
 
     @ParameterizedTest
-    @MethodSource("provideForFindWinners")
-    fun `findWinners - 가장 큰 변위를 가진 자동차들을 반환`(cars: Cars, expected: List<Car>) {
+    @MethodSource("provideForFindAllByMaximumDistance")
+    fun `findAllByMaximumDistance - 가장 큰 변위를 가진 자동차들을 반환`(cars: Cars, expected: List<Car>) {
         // when
-        val actual = cars.findWinner()
+        val actual = cars.findAllByMaximumDistance()
 
         // then
         actual `should be equal to` expected
@@ -54,7 +54,7 @@ internal class CarsTest {
     companion object {
 
         @JvmStatic
-        private fun provideForFindWinners(): Stream<Arguments> {
+        private fun provideForFindAllByMaximumDistance(): Stream<Arguments> {
             return Stream.of(
                 Arguments.of(
                     Cars(Car("1번마"), Car("2번마", 1), Car("3번마", 3)),

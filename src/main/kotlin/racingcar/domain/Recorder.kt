@@ -8,5 +8,5 @@ class Recorder(private val records: MutableList<Cars> = mutableListOf()) {
         records.add(cars)
     }
 
-    fun findWinner(): List<Car> = records.last().findWinner()
+    fun findWinner(): List<Car> = records.last().findAllByMaximumDistance()
 }

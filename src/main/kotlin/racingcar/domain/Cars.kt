@@ -5,8 +5,8 @@ class Cars(val cars: List<Car>) {
 
     fun run(movingStrategy: MovingStrategy): Cars = Cars(cars.map { it.run(movingStrategy) })
 
-    fun findWinner(): List<Car> {
-        val maximumDistance = cars.maxBy { it.distance }?.distance!!
+    fun findAllByMaximumDistance(): List<Car> {
+        val maximumDistance = cars.maxBy { it.distance }!!.distance
         return cars.filter { it.isSameDistance(maximumDistance) }
     }
 }
