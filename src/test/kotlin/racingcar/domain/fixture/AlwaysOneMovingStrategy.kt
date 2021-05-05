@@ -7,7 +7,5 @@ class AlwaysOneMovingStrategy: MovingStrategy {
 
     override fun isMovable(): Boolean = true
 
-    override fun move(distance: Distance): Distance {
-        return distance + Distance(1)
-    }
+    override fun move(distance: Distance): Distance = distance + Distance(1)
 }
