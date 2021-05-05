@@ -7,4 +7,6 @@ class Recorder(private val records: MutableList<Cars> = mutableListOf()) {
     fun record(cars: Cars) {
         records.add(cars)
     }
+
+    fun findWinner(): List<Car> = records.last().findWinner()
 }

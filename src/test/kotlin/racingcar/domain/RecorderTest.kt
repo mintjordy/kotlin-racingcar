@@ -48,4 +48,24 @@ internal class RecorderTest {
         result[0].cars[1] `should be equal to` Car("2")
         result[0].cars[2] `should be equal to` Car("3")
     }
+
+    @Test
+    fun `findWinner - 최종라운드에 승리한 자동차 목록을 반환`() {
+        // given
+        val recorder = Recorder()
+        val oneRoundResult = Cars(Car("1"), Car("2"), Car("3"))
+        val twoRoundResult = Cars(Car("1", 1), Car("2"), Car("3", 2))
+        val thirdRoundResult = Cars(Car("1", 2), Car("2", 3), Car("3", 3))
+        recorder.record(oneRoundResult)
+        recorder.record(twoRoundResult)
+        recorder.record(thirdRoundResult)
+
+        // when
+        val winners = recorder.findWinner()
+
+        // then
+        winners.size `should be equal to` 2
+        winners[0] `should be equal to` Car("2", 3)
+        winners[1] `should be equal to` Car("3", 3)
+    }
 }
