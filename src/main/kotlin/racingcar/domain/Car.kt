@@ -5,6 +5,7 @@ import racingcar.domain.strategy.move.MovingStrategy
 data class Car(val name: Name, val distance: Distance = Distance(DEFAULT_DISTANCE)) {
 
     constructor(name: String) : this(Name(name))
+
     constructor(name: String, distance: Int) : this(Name(name), Distance(distance))
 
     fun run(movingStrategy: MovingStrategy): Car {

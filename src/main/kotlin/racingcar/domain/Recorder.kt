@@ -1,6 +1,7 @@
 package racingcar.domain
 
 class Recorder(private val records: MutableList<Cars> = mutableListOf()) {
+
     val result: List<Cars>
         get() = records.toList()
 
