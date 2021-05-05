@@ -19,5 +19,7 @@ class Cars(val cars: List<Car>) {
 
     companion object {
         private const val MINIMUM_COUNT_OF_CAR = 2
+
+        fun from(names: List<String>, distance: Int = 0): Cars = Cars(names.map { Car(it, distance) })
     }
 }

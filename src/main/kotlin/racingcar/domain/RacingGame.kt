@@ -5,10 +5,11 @@ import racingcar.domain.strategy.move.MovingStrategy
 class RacingGame {
 
     fun play(cars: Cars, round: Round, movingStrategy: MovingStrategy): Recorder {
+        var players = cars
         val recorder = Recorder()
         repeat(round.value) {
-            val eachRoundResult = cars.run(movingStrategy)
-            recorder.record(eachRoundResult)
+            players = players.run(movingStrategy)
+            recorder.record(players)
         }
         return recorder
     }
